@@ -1,5 +1,4 @@
 # Auto.js and AutoX.js
-[中文文档](README.md)
 ## Introduction
 A JavaScript runtime and development environment on the Android platform that supports accessibility services, 
 and its development goals are similar to JsBox and Workflow.
