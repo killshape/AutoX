@@ -156,4 +156,3 @@ Start by running the following command:
 Click on Android Studio menu "Build" -> "Generate Signed Bundle /APK..." -> check "APK" -> "Next" -> select or create a new certificate -> "Next" -> select "v6Release" -> "Finish"
 The generated APK file is under app/v6/release
 
-Translated with www.DeepL.com/Translator (free version)
