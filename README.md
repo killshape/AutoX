@@ -2,163 +2,158 @@
 
 [English Document](README_en.md)
 
-## 简介
+## Introduction
 
-一个支持无障碍服务的Android平台上的JavaScript 运行环境 和 开发环境，其发展目标是类似JsBox和Workflow。
+A JavaScript runtime environment and development environment on Android platform supporting accessibility services, with development goals similar to JsBox and Workflow.
 
-~~由于[原作者](https://github.com/hyb1996) 不再维护 Auto.js 项目
-我计划在原来基础上继续维护者项目，本项目从[autojs](https://github.com/hyb1996/Auto.js) 并将原项目命名为Autox.js。
-你现在看的是原4.1版基础上的项目，后面我将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级，
-最新的[Autox.js地址](https://github.com/kkevsekk1/AutoX), 文档中很多原项目路径，
-在原项目没有删除的情况下我并不打算替换掉，以表对于原作者的尊重。这篇文档里有加密相关的内容可能和实际运行情况有冲突，
-如果你希望写的代码加密保护知识产权，请参考项目 https://github.com/kkevsekk1/webpack-autojs
-我会逐步完善更新，程序代码，尽可能保持一致。~~
 
-本项目从[hyb1996](https://github.com/hyb1996/Auto.js) autojs 获得,并命名为Autox.js （autojs 修改版本），
-你现在看的是原4.1版本基础上的项目，
-后面我们将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级。[hyb1996](https://github.com/hyb1996/Auto.js)采用的
+This project was obtained from [hyb1996](https://github.com/hyb1996/Auto.js) autojs, and named Autox.js (autojs modified version).
+You are looking at the project based on the original 4.1 version.
+Later we will introduce how to develop and run the project itself, and welcome more developers to participate in the maintenance and upgrade of this project. [hyb1996](https://github.com/hyb1996/Auto.js) uses the
 [Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)
-+**非商业性使用**，出于多种因素考虑， 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证，
-无论是其他贡献者，还是使用该产品，均需按照 MPL-2.0+非商业性使用 和 GPL-V2 的相关要求使用。
++*Non-Commercial Use** This product is licensed under the [GPL-V2](https://opensource.org/licenses/GPL-2.0) for a variety of reasons.
+Both the other contributors and the use of this product are required to use it in accordance with MPL-2.0+Non-Commercial Use and GPL-V2.
 
-关于两种协议：
+Regarding the two protocols:
 
-* GPL-V2（https://opensource.org/licenses/GPL-2.0）
+* GPL-V2 (https://opensource.org/licenses/GPL-2.0)
 * MPL-2 (https://www.mozilla.org/MPL/2.0)
 
-### 现在的Autox.js：
+### Now for Autox.js:
 
-* Autox.js文档： http://doc.autoxjs.com/
-* 开源地址  https://github.com/kkevsekk1/AutoX
-* pc端开发[VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
-* 官方论坛： [www.autoxjs.com](http://www.autoxjs.com)
-* autoxjs[更新日志](CHANGELOG.md)
+* Autox.js documentation: http://doc.autoxjs.com/
+* Open source address https://github.com/kkevsekk1/AutoX
+* pc-side development [VS Code plug-in] (https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
+* Official forum: [www.autoxjs.com](http://www.autoxjs.com)
+* autoxjs[changelog](CHANGELOG.md)
 
-### Autox.js下载地址：
+### Autox.js download address:
 [https://github.com/kkevsekk1/AutoX/releases](https://github.com/kkevsekk1/AutoX/releases)  
-如果下载过慢可以右键复制 Release Assets 中APK文件的链接地址，粘贴到 [http://toolwa.com/github/](http://toolwa.com/github/) 等github加速网站下载
+If the download is too slow you can right click and copy the link address of the APK file in Release Assets and paste it into [http://toolwa.com/github/](http://toolwa.com/github/) and other github acceleration sites to download
 
-#### APK版本说明：
-- universal: 通用版（不在乎安装包大小/懒得选就用这个版本，包含以下2种CPU架构so）
-- armeabi-v7a: 32位ARM设备（备用机首选）
-- arm64-v8a: 64位ARM设备（主流旗舰机）
+#### APK version description:
+- universal: universal version (don't care about the size of the installation package / lazy to choose, use this version, including the following 2 CPU architecture so)
+- armeabi-v7a: 32-bit ARM device (preferred for spare machines)
+- arm64-v8a: 64-bit ARM device (mainstream flagship)
 
-### 特性
+### Features
 
-1. 由无障碍服务实现的简单易用的自动操作函数
-2. 悬浮窗录制和运行
-3. 更专业&强大的选择器API，提供对屏幕上的控件的寻找、遍历、获取信息、操作等。类似于Google的UI测试框架UiAutomator，您也可以把他当做移动版UI测试框架使用
-4. 采用JavaScript为脚本语言，并支持代码补全、变量重命名、代码格式化、查找替换等功能，可以作为一个JavaScript IDE使用
-5. 支持使用e4x编写界面，并可以将JavaScript打包为apk文件，您可以用它来开发小工具应用
-6. 支持使用Root权限以提供更强大的屏幕点击、滑动、录制功能和运行shell命令。录制录制可产生js文件或二进制文件，录制动作的回放比较流畅
-7. 提供截取屏幕、保存截图、图片找色、找图等函数
-8. 可作为Tasker插件使用，结合Tasker可胜任日常工作流
-9. 带有界面分析工具，类似Android Studio的LayoutInspector，可以分析界面层次和范围、获取界面上的控件信息的
+1. easy-to-use auto-operation functions implemented by accessibility services
+2. Hover window recording and running
+3. more professional & powerful selector API to provide find, traverse, get information, manipulate controls on the screen, etc. Similar to Google's UI testing framework UiAutomator, you can also use him as a mobile version of the UI testing framework
+4. using JavaScript as the scripting language , and support code completion , variable renaming , code formatting , find and replace , etc. , you can use as a JavaScript IDE
+5. support the use of e4x to write the interface, and can package JavaScript as an apk file, you can use it to develop widget applications
+6. Support using Root permission to provide more powerful screen click, swipe, record function and run shell commands. Recording recording can produce js files or binary files, the playback of recorded actions is more smooth
+7. provide functions to intercept screen, save screenshot, find color of image, find map, etc.
+8. can be used as Tasker plug-in, combined with Tasker can be competent for daily workflow
+9. With interface analysis tools, similar to Android Studio's LayoutInspector, which can analyze the interface level and scope, and get the information of controls on the interface.
 
-本软件与按键精灵等软件不同，主要区别是：
+This software is different from Keystroke Wizard and other software, the main differences are:
 
-1. Auto.js主要以自动化、工作流为目标，更多地是方便日常生活工作，例如启动游戏时自动屏蔽通知、一键与特定联系人微信视频（知乎上出现过该问题，老人难以进行复杂的操作和子女进行微信视频）等
-2. Auto.js兼容性更好。以坐标为基础的按键精灵、脚本精灵很容易出现分辨率问题，而以控件为基础的Auto.js则没有这个问题
-3. Auto.js执行大部分任务不需要root权限。只有需要精确坐标点击、滑动的相关函数才需要root权限
-4. Auto.js可以提供界面编写等功能，不仅仅是作为一个脚本软件而存在
+1. Auto.js is mainly aimed at automation and workflow, and is more convenient for daily work, such as automatically blocking notifications when starting games, one-click WeChat video with specific contacts (the problem has appeared on Zhihu, and it is difficult for the elderly to perform complex operations and children to WeChat video)
+2. Auto.js is more compatible. Coordinate-based keystroke wizard and script wizard are prone to resolution problems, while the control-based Auto.js does not have this problem
+3. Auto.js does not require root access to perform most tasks. Only functions that require precise coordinate clicks and swipes require root access.
+4. Auto.js can provide functions such as interface writing, not just exist as a scripting software
 
-### autojs信息
+### autojs information
 
-* 官方论坛： [autojs.org](http://www.autojs.org)
-* 文档：可在[这里](https://hyb1996.github.io/AutoJs-Docs/)查看在线文档。目前文档仍然不完善。
+* Official forum: [autojs.org](http://www.autojs.org)
+* Documentation: Online documentation can be viewed [here](https://hyb1996.github.io/AutoJs-Docs/). The documentation is still not perfect.
 *
 
-示例：可在[这里](https://github.com/hyb1996/NoRootScriptDroid/tree/master/app/src/main/assets/sample)查看一些示例，或者直接在应用内查看和运行。
+Examples: Some examples can be viewed at [here](https://github.com/hyb1996/NoRootScriptDroid/tree/master/app/src/main/assets/sample), or viewed and run directly within the application.
 
-### 架构图
+### Architecture diagram
 
-待补充，不过是否有人真对此干兴趣？欢迎联系我交流
+To be added, but is anyone really interested in this? Feel free to contact me to exchange
 
-## 关于License
+## About License
 
-##### 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证
+##### This product is licensed under the [GPL-V2](https://opensource.org/licenses/GPL-2.0) license
 
-##### 由于历史原因还得遵循[autojs项目](https://github.com/hyb1996/Auto.js)的协议：
+##### For historical reasons also has to follow the [autojs project](https://github.com/hyb1996/Auto.js) agreement:
 
-基于[Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)并附加以下条款：
+Based on [Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md) and with the following additional terms:
 
-* **非商业性使用** — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途
+* **Non-Commercial Use** - The source code and binaries of this project and its derivative projects may not be used for any commercial and for-profit purposes
 
-#### 本Autox.js能不能采用GPL-V2?
+#### Can this Autox.js be GPL-V2?
 
-关于GPL-V2 应该很容易理解， 著名linux 采用该许可证。但是对于MPL-2.0 有非常多的文章都是停留在MPL-1.1 的版本，对非常多国内开发者造成困扰,
-这是一篇比较标准[译文](https://github.com/rachelzhang1/MPL2.0_zh-CN/blob/93d2feec60d8b0b5a54a1843c866994af4610d4f/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.txt)
-有兴趣可以研究一下。
+It should be easy to understand about GPL-V2, the famous linux license. However, there are many articles about MPL-2.0 that are stuck with MPL-1.1, which causes problems for many domestic developers.
+This is a more standard [translation](https://github.com/rachelzhang1/MPL2.0_zh-CN/blob/93d2feec60d8b0b5a54a1843c866994af4610d4f/Mozilla_Public_License_2.0) _Simplified_Chinese_Reference.txt)
+You can study it if you are interested.
 
-#### 代码贡献者需要注意：
+#### Note to code contributors:
 
-原文中没人声明license 即为MPL2.0 ,新加文件或修改（仅限于修你自己的）代码采用GPL-V2，需要做相关声明。
+No one declared the license in the original article that is MPL2.0, new files or modify (limited to repair your own) code using GPL-V2, you need to do the relevant declaration.
 
 ``` java
 // SPDX-License-Identifier: GPL-2.0
-// 申明你的版权
+// Declare your copyright
 ```
 
-#### 其他人使用Autox.js，做深度开发请注意
+#### others use Autox.js, do deep development please note
 
-* 如果你使用了带有GPL-2.0 声明的代码 或编译出来的二进制。你需要开源你所有代码。
-* 如果你仅使用了MPL-2.0 的东西，你需要开源你修改过的相关代码。
+* If you use code with GPL-2.0 declaration or compiled binary. You need to open source all your code.
+* If you are using only MPL-2.0 stuff, you need to open source your modified related code.
 
-#### 抛开本产品谈 开源和商业
+#### Open source and commercial aside from this product
 
-* 开源不等于随意使用，开源也不等于禁止商用！
-* 开源东西可以商用，但你需要按规定开源！
-* 商用的产品可以是开源的，比如redhat！
-* 不按开源协议使用开源产品，那可了解openwrt的来源，以及近几年国内的侵权案例！
+* Open source is not the same as free to use, and open source is not the same as prohibiting commercial use!
+* Open source stuff can be commercially available, but you need to open source it as specified!
+* Commercial products can be open source, like redhat!
+* not according to the open source protocol to use open source products, that can understand the source of openwrt, and the recent years of domestic infringement cases!
 
-#### 关于其他人开发的js脚本，在这上面运行。是否需要遵循GPL-2.0进行开源
+#### about js scripts developed by others to run on this. Whether you need to follow the GPL-2.0 for open source
 
-* 那是你的自由，不受这协议限制，如同linux 运行软件一样
+* That's your freedom, not restricted by this agreement, just like linux running software
 
-#### 使用本产品或autojs 产品是否可以商用?
+#### Is it possible to use this product or autojs product commercially?
 
-* 本产品 能不能商用，取决于 原来autojs，因为目前很多功能和代码版权归autojs 所有。
-* autojs 能不能商用,取决于你对于附带的 “ **非商业性使用** ” 的理解和其法律效益。
-* 反正本产品不会拿autojs 进行商用。
+* Whether this product is commercially available depends on the original autojs, as many features and code are currently copyrighted by autojs.
+* Whether autojs is commercially available depends on your understanding of the " **non-commercial use**" attached to it and its legal benefits.
+* This product will not be used commercially with autojs anyway.
 
-#### 编译相关：
-命令说明：在项目根目录下运行命令，如果使用 Windows powerShell < 7.0，请使用包含 ";" 的命令
+#### Compiler related:
+Command description: Run the command in the project root directory, if using Windows powerShell < 7.0, use the command containing ";"
 
-##### 本地安装调试版本到设备：
+##### Install debug version locally to device:
 ```shell
-./gradlew inrt:assembleTemplateDebug && ./gradlew inrt:cp2APPDebug && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
-#或
-./gradlew inrt:assembleTemplateDebug ; ./gradlew inrt:cp2APPDebug ; ./gradlew app:assembleV6Debug ; ./gradlew app:installV6Debug
+. /gradlew inrt:assembleTemplateDebug && . /gradlew inrt:cp2APPDebug && . /gradlew app:assembleV6Debug && . /gradlew app:installV6Debug
+# or
+. /gradlew inrt:assembleTemplateDebug ; . /gradlew inrt:cp2APPDebug ; . /gradlew app:assembleV6Debug ; . /gradlew app:installV6Debug
 ```
-生成的调试版本APK文件在 app/build/outputs/apk/v6/debug 下，使用默认签名
+The generated debug version of the APK file is under app/build/outputs/apk/v6/debug, using the default signature
 
-##### 本地编译发布版本：
+##### local build release version:
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
-#或
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
+. /gradlew inrt:assembleTemplate && . /gradlew inrt:cp2APP && . /gradlew app:assembleV6
+# or
+. /gradlew inrt:assembleTemplate ; . /gradlew inrt:cp2APP ; . /gradlew app:assembleV6
 ```
-生成的是未签名的APK文件，在 app/build/outputs/apk/v6/release 下，需要签名后才能安装
+The generated APK file is unsigned and is under app/build/outputs/apk/v6/release and needs to be signed before it can be installed
 
-##### 本地 Android Studio 运行调试版本到设备：
-先运行以下命令：
-
-```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
-#或
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
-```
-
-再点击 Android Studio 运行按钮
-
-##### 本地 Android Studio 编译发布版本并签名：
-先运行以下命令：
+##### Local Android Studio to run the debug version to the device:
+First run the following command:
 
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
-#或
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+. /gradlew inrt:assembleTemplate && . /gradlew inrt:cp2APP
+# or
+. /gradlew inrt:assembleTemplate ; . /gradlew inrt:cp2APP
 ```
 
-再点击 Android Studio 菜单 "Build" -> "Generate Signed Bundle /APK..." -> 勾选"APK" -> "Next" -> 选择或新建证书 -> "Next" -> 选择"v6Release" -> "Finish"
-生成的APK文件，在 app/v6/release 下
+Then click the Android Studio Run button
+
+##### Local Android Studio compiles the release and signs it:
+Start by running the following command:
+
+```shell
+. /gradlew inrt:assembleTemplate && . /gradlew inrt:cp2APP
+# or
+. /gradlew inrt:assembleTemplate ; . /gradlew inrt:cp2APP
+```
+
+Click on Android Studio menu "Build" -> "Generate Signed Bundle /APK..." -> check "APK" -> "Next" -> select or create a new certificate -> "Next" -> select "v6Release" -> "Finish"
+The generated APK file is under app/v6/release
+
+Translated with www.DeepL.com/Translator (free version)
