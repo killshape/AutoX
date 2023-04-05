@@ -1,6 +1,5 @@
 # Auto.js And Autox.js
 
-[English Document](README_en.md)
 
 ## Introduction
 
